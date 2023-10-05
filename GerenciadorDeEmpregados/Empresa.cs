@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 namespace GerenciadorDeEmpregados
 {
     internal class Empresa
-    {
+    {   //private void Promover(Empregado.Nome, Empregado.Sobrenome)
+        //{
+        //    return;
+        //}
+        //private void Demitir(Empregado.Nome, Empregado.Sobrenome)
+        //{
+        //    return;
+        //}
     }
 }

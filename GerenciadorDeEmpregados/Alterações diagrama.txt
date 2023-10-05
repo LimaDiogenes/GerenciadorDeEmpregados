@@ -1,0 +1,5 @@
+﻿A fazer
+- Método para completar cadastro, caso o usuário inicialize o objeto Empregado com o construtor simples
+- Método gerador de matrículas que verifica se matrícula já existe
+
+- Promover e demitir devem ser alterados para classe Menu, junto com cadastrar.
