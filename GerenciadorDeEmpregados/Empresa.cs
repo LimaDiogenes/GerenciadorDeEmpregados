@@ -7,11 +7,19 @@ using System.Threading.Tasks;
 namespace GerenciadorDeEmpregados
 {
     internal class Empresa
-    {   //private void Promover(Empregado.Nome, Empregado.Sobrenome)
+    {
+        private List<Empregado> empregados = new(); // inicializa lista de empregados  
+
+
+        internal void Cadastrar(Empregado empregado)
+        {
+            empregados.Add(empregado);
+        }
+        //private static void Promover(Empregado.Nome, Empregado.Sobrenome)
         //{
         //    return;
         //}
-        //private void Demitir(Empregado.Nome, Empregado.Sobrenome)
+        //private static void Demitir(Empregado.Nome, Empregado.Sobrenome)
         //{
         //    return;
         //}

@@ -8,15 +8,15 @@ namespace GerenciadorDeEmpregados
 {
     internal class Empregado
     {
-        private int Matricula { get; set; }
-        private string Nome { get; set; }
-        private string Sobrenome { get; set; }
-        private int Idade { get; set; }
-        private DateOnly DataNascimento { get; set; }
-        private DateTime DataContratacao { get; set; }
-
-        private double salario = 1320.00d; // valor do salario minimo
-        private double Salario
+        internal int Matricula { get; set; }
+        internal string Nome { get; set; }
+        internal string Sobrenome { get; set; }
+        internal int Idade { get; set; }
+        internal DateOnly DataNascimento { get; set; }
+        internal DateOnly DataContratacao { get; set; }
+        
+        internal double salario = 1320.00d; // valor do salario minimo
+        internal double Salario
         {
             get
             { return salario; }
@@ -32,7 +32,7 @@ namespace GerenciadorDeEmpregados
 
 
         // construtor1 - dados completos
-        internal Empregado(int matricula, string nome, string sobrenome, int idade, DateOnly dataNascimento, DateTime dataContratacao, double salario)
+        internal Empregado(int matricula, string nome, string sobrenome, int idade, DateOnly dataNascimento, DateOnly dataContratacao, double salario)
         {
             Matricula = matricula;
             Nome = nome;

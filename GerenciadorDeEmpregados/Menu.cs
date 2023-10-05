@@ -34,20 +34,6 @@ namespace GerenciadorDeEmpregados
         internal string Linha24 { get; set; }  = "";
         internal string Linha25 { get; set; }  = "";
 
-        internal char MenuInicial() // cria menu com as opcoes iniciais
-        {
-            Linha3 = "Gerenciador de Empregados";
-            Linha7 = "════════════════════════════════════════════════════════════════════════════════════════════════";
-            Linha10 = "Escolha uma opção abaixo";
-            Linha15 = "[ ]";
-            Linha17 = Linha7;
-            Linha20 = "[C] Cadastrar empregado       [L] Listar empregados";
-            Linha21 = "[P] Promover empregado        [D] Demitir Empregado";
-            Linha22 = "[S] Listar salário anual      [Q] Encerrar programa";
-
-            return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, posicionar o cursor, e retornar a opcao do usuario
-        }
-
         internal Menu() // construtor chama tela inicial, em branco, cria margens da tela
         {
             Console.Clear();
@@ -78,6 +64,137 @@ namespace GerenciadorDeEmpregados
             TextoCentralizado("");
             TextoCentralizado("");
             TextoCentralizado("", starter: '╚', sep: '═', ends: '╝');
+        }
+        static void LimpaTela() // limpa console
+        {
+            Console.Clear();
+            TextoCentralizado("", starter: '╔', sep: '═', ends: '╗');
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("", starter: '╚', sep: '═', ends: '╝');
+        }
+
+        internal char MenuInicial() // cria menu com as opcoes iniciais
+        {
+            Linha3 = "Gerenciador de Empregados";
+            Linha7 = "════════════════════════════════════════════════════════════════════════════════════════════════";
+            Linha10 = "Escolha uma opção abaixo";
+            Linha15 = "[ ]";
+            Linha17 = Linha7;
+            Linha20 = "[C] Cadastrar empregado       [L] Listar empregados";
+            Linha21 = "[P] Promover empregado        [D] Demitir Empregado";
+            Linha22 = "[S] Listar salário anual      [Q] Encerrar programa";
+
+            return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, posicionar o cursor, e retornar a opcao do usuario
+        }
+
+        internal Empregado MenuCadastrar()
+        {
+            bool loopCadastro = true;
+            
+            while (loopCadastro)
+            {
+                labelInicioCadastro:
+                Menu cadastrar = new();
+                cadastrar.Linha5 = "PRIMEIRO NOME:       [                               ]";
+                cadastrar.Linha6 = "SOBRENOME:           [                               ]";
+                cadastrar.Linha7 = "IDADE:               [                               ]";
+                cadastrar.Linha8 = "DATA NASCIMENTO      [                    dd/mm/aaaa ]";
+                cadastrar.Linha9 = "DATA CONTRATAÇÃO:    [                    dd/mm/aaaa ]";
+                cadastrar.Linha10 = "SALÁRIO:             [                    dd/mm/aaaa ]";
+
+                cadastrar.Linha19 = "[ ]";
+                cadastrar.Linha20 = "[C] CONFIRMAR     |     [Q] VOLTAR AO MENU PRINCIPAL     |     [R] CORRIGIR";
+
+                cadastrar.ImprimirMenuVoid(52, 3); // imprime o menu com as linhas acima
+
+                // a fazer validações de tipo do input
+                int matricula = 123456; // a criar geração aleatoria
+                Console.SetCursorPosition(48, 5); 
+                string nome = Console.ReadLine();
+                Console.SetCursorPosition(48, 6);
+                string sobrenome = Console.ReadLine();
+                Console.SetCursorPosition(48, 7);
+                int idade = int.Parse(Console.ReadLine());
+                Console.SetCursorPosition(48, 8);
+                DateOnly dataNascimento = DateOnly.Parse(Console.ReadLine());
+                Console.SetCursorPosition(48, 9); 
+                DateOnly dataContratacao = DateOnly.Parse(Console.ReadLine());
+                Console.SetCursorPosition(48, 10);
+                double salario = double.Parse(Console.ReadLine());
+                
+                Console.SetCursorPosition(52, 19);
+                char opcao = char.ToUpper(Console.ReadKey().KeyChar);
+
+                Empregado empregado = new(matricula, nome, sobrenome, idade, dataNascimento, dataContratacao, salario);
+
+                if (opcao == 'Q')
+                {
+                    break;
+                }
+                
+
+                >>>>>>>>>>>CONTINUAR AQUI<<<<<<<<<< CRIAR OPCOES
+            }
+            
+
+        }
+
+        private void ImprimirMenuVoid(int posicaoX, int posicaoY) // substitui linhas pela informacao necessaria. Usar dentro da classe
+        {
+            Console.SetCursorPosition(0, 1);
+
+            Console.WriteLine(
+            SubstituirPalavras(Linha1) + "\n" +
+            SubstituirPalavras(Linha2) + "\n" +
+            SubstituirPalavras(Linha3) + "\n" +
+            SubstituirPalavras(Linha4) + "\n" +
+            SubstituirPalavras(Linha5) + "\n" +
+            SubstituirPalavras(Linha6) + "\n" +
+            SubstituirPalavras(Linha7) + "\n" +
+            SubstituirPalavras(Linha8) + "\n" +
+            SubstituirPalavras(Linha9) + "\n" +
+            SubstituirPalavras(Linha10) + "\n" +
+            SubstituirPalavras(Linha11) + "\n" +
+            SubstituirPalavras(Linha12) + "\n" +
+            SubstituirPalavras(Linha13) + "\n" +
+            SubstituirPalavras(Linha14) + "\n" +
+            SubstituirPalavras(Linha15) + "\n" +
+            SubstituirPalavras(Linha16) + "\n" +
+            SubstituirPalavras(Linha17) + "\n" +
+            SubstituirPalavras(Linha18) + "\n" +
+            SubstituirPalavras(Linha19) + "\n" +
+            SubstituirPalavras(Linha20) + "\n" +
+            SubstituirPalavras(Linha21) + "\n" +
+            SubstituirPalavras(Linha22) + "\n" +
+            SubstituirPalavras(Linha23) + "\n" +
+            SubstituirPalavras(Linha24) + "\n" +
+            SubstituirPalavras(Linha25));
+            Console.SetCursorPosition(posicaoX, posicaoY); //posicionamento do cursor para input
+           
         }
 
         private char MenuRetornaChar(int posicaoX, int posicaoY) // substitui linhas pela informacao necessaria. Usar dentro da classe
