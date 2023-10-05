@@ -45,81 +45,78 @@ namespace GerenciadorDeEmpregados
             Linha21 = "[P] Promover empregado        [D] Demitir Empregado";
             Linha22 = "[S] Listar salário anual      [Q] Encerrar programa";
 
-            return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, e 
-
+            return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, posicionar o cursor, e retornar a opcao do usuario
         }
 
         internal Menu() // construtor chama tela inicial, em branco, cria margens da tela
         {
             Console.Clear();
-            CenterText("", starter: '╔', sep: '═', ends: '╗');
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("");
-            CenterText("", starter: '╚', sep: '═', ends: '╝');
+            TextoCentralizado("", starter: '╔', sep: '═', ends: '╗');
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("");
+            TextoCentralizado("", starter: '╚', sep: '═', ends: '╝');
         }
-
-
 
         private char MenuRetornaChar(int posicaoX, int posicaoY) // substitui linhas pela informacao necessaria. Usar dentro da classe
         {
             Console.SetCursorPosition(0, 1);
 
             Console.WriteLine(
-            wordReplacer(Linha1) + "\n" +
-            wordReplacer(Linha2) + "\n" +
-            wordReplacer(Linha3) + "\n" +
-            wordReplacer(Linha4) + "\n" +
-            wordReplacer(Linha5) + "\n" +
-            wordReplacer(Linha6) + "\n" +
-            wordReplacer(Linha7) + "\n" +
-            wordReplacer(Linha8) + "\n" +
-            wordReplacer(Linha9) + "\n" +
-            wordReplacer(Linha10) + "\n" +
-            wordReplacer(Linha11) + "\n" +
-            wordReplacer(Linha12) + "\n" +
-            wordReplacer(Linha13) + "\n" +
-            wordReplacer(Linha14) + "\n" +
-            wordReplacer(Linha15) + "\n" +
-            wordReplacer(Linha16) + "\n" +
-            wordReplacer(Linha17) + "\n" +
-            wordReplacer(Linha18) + "\n" +
-            wordReplacer(Linha19) + "\n" +
-            wordReplacer(Linha20) + "\n" +
-            wordReplacer(Linha21) + "\n" +
-            wordReplacer(Linha22) + "\n" +
-            wordReplacer(Linha23) + "\n" +
-            wordReplacer(Linha24) + "\n" +
-            wordReplacer(Linha25));
+            SubstituirPalavras(Linha1) + "\n" +
+            SubstituirPalavras(Linha2) + "\n" +
+            SubstituirPalavras(Linha3) + "\n" +
+            SubstituirPalavras(Linha4) + "\n" +
+            SubstituirPalavras(Linha5) + "\n" +
+            SubstituirPalavras(Linha6) + "\n" +
+            SubstituirPalavras(Linha7) + "\n" +
+            SubstituirPalavras(Linha8) + "\n" +
+            SubstituirPalavras(Linha9) + "\n" +
+            SubstituirPalavras(Linha10) + "\n" +
+            SubstituirPalavras(Linha11) + "\n" +
+            SubstituirPalavras(Linha12) + "\n" +
+            SubstituirPalavras(Linha13) + "\n" +
+            SubstituirPalavras(Linha14) + "\n" +
+            SubstituirPalavras(Linha15) + "\n" +
+            SubstituirPalavras(Linha16) + "\n" +
+            SubstituirPalavras(Linha17) + "\n" +
+            SubstituirPalavras(Linha18) + "\n" +
+            SubstituirPalavras(Linha19) + "\n" +
+            SubstituirPalavras(Linha20) + "\n" +
+            SubstituirPalavras(Linha21) + "\n" +
+            SubstituirPalavras(Linha22) + "\n" +
+            SubstituirPalavras(Linha23) + "\n" +
+            SubstituirPalavras(Linha24) + "\n" +
+            SubstituirPalavras(Linha25));
 
 
             Console.SetCursorPosition(posicaoX, posicaoY); //posicionamento do cursor para input
-            char userOption = char.ToUpper(Console.ReadKey().KeyChar); //variavel com a selecao do usuario. ReadKey aqui serve para receber a primeira tecla do input do usuario,
-            //e KeyChar passa o valor recebido em formato ´char´para a variavel userOption
+            char OpcaoUsuario = char.ToUpper(Console.ReadKey().KeyChar); //variavel com a selecao do usuario. ReadKey aqui serve para receber a primeira tecla do input do usuario,
+            //e KeyChar passa o valor recebido em formato ´char´para a variavel OpcaoUsuario
 
-            return userOption;
+            return OpcaoUsuario;
         }
 
         /// <summary>       
@@ -134,7 +131,7 @@ namespace GerenciadorDeEmpregados
         /// <param name="ends">ultimo caractere da linha (margem)</param>
         /// <param name="sep">caracter para usar como separador, que aparecerá antes e depois do texto até o tamanho da tela</param>
         /// <param name="width">largura</param>                
-        static void CenterText(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100)
+        static void TextoCentralizado(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100)
         {
             int padWidth = (width - text.Length) / 2; // encontra a metade da largura, excluindo o tamanho do texto criado
             string paddedText = text.PadLeft(text.Length + padWidth, sep).PadRight(width, sep); // PadLeft e PadRight criam caracteres de preenchimento "sep" em ambos os lados do texto, deixando centralizado na tela  
@@ -142,9 +139,9 @@ namespace GerenciadorDeEmpregados
 
         }
 
-        // wordReplacer é uma versão alterada de CenterText acima, retornando o que deve ser escrito
-        // forma encontrada para poder utilizar como argumento, dentro de CenterText, assim podendo imprimir texto dentro das margens, sem apagá-las
-        static string wordReplacer(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100) // cria um texto centralizado, aceitando como argumentos "end = primeiro e ultimo caractere da linha", "sep = caracter para usar como separador, que aparecerá antes e depois do texto até o tamanho da tela", "width = largura" todos os parâmetros são opcionais
+        // SubstituirPalavras é uma versão alterada de TextoCentralizado acima, retornando o que deve ser escrito
+        // forma encontrada para poder utilizar como argumento, dentro de TextoCentralizado, assim podendo imprimir texto dentro das margens, sem apagá-las
+        static string SubstituirPalavras(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100) // cria um texto centralizado, aceitando como argumentos "end = primeiro e ultimo caractere da linha", "sep = caracter para usar como separador, que aparecerá antes e depois do texto até o tamanho da tela", "width = largura" todos os parâmetros são opcionais
         {
             int padWidth = (width - text.Length) / 2; // encontra a metada da largura, excluindo o tamanho do texto criado
             string palavra = text.PadLeft(text.Length + padWidth, sep).PadRight(width, sep); // PadLeft e PadRight criam caracteres de preenchimento "sep" em ambos os lados do texto, deixando centralizado na tela  
