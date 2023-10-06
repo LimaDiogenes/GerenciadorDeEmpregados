@@ -20,13 +20,12 @@ namespace GerenciadorDeEmpregados
         {
             get
             { return salario; }
-            set // checando para permitir atribuir o novo valor apenas se for >= ao minimo
+            set // checando para permitir atribuir o novo valor apenas se for > minimo
             {
-                if (value < salario)
+                if (value > salario)
                 {
-                    salario = 1320.00d;
+                    salario = value; 
                 }
-                salario = value; // else {}
             }
         }
 

@@ -4,7 +4,7 @@
     {
         static void Main()
         {
-            Empresa empresa = new Empresa(); // cria objeto Empresa. Objeto inicializa uma nova lista
+            
             Menu telaInicial = new(); // cria a tela inicial (margens)
             bool manterLoop1 = true;
             while (manterLoop1)
@@ -16,20 +16,18 @@
                     case 'Q': // sair                        
                         Console.SetCursorPosition(52, 13);
                         Console.WriteLine("Adeus...");
-                        Console.ReadLine();
+                        Thread.Sleep(3000);
                         Console.SetCursorPosition(52, 27); // joga o cursor para fora da tela, para não cortar a tela antes de fechar
                         Environment.Exit(0);
                         break;
 
                     case 'C': // cadastrar
                         telaInicial.MenuCadastrar();
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         break;
 
                     case 'L': // listar empregados
-                        Console.WriteLine();
-                        Console.WriteLine(OpcaoInicial+" placeholder listar");
-                        Console.ReadLine();
+                        Empresa.ConsultarEmpregados();
                         break;
 
                     case 'P': // promover empregado
@@ -44,16 +42,14 @@
                         Console.ReadLine();
                         break;
                     
-                    case 'S': // listar salário anual
-                        Console.WriteLine();
+                    case 'S': // listar salário anual                        
                         Console.WriteLine(OpcaoInicial + " placeholder salario anual");
                         Console.ReadLine();
                         break;
 
                     default:
                         telaInicial.Linha24 = "Opção Inválida";
-                        break;
-                        
+                        break;                        
 
                 }                              
                 
