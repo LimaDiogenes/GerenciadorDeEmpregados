@@ -22,29 +22,27 @@
                         break;
 
                     case 'C': // cadastrar
-                        telaInicial.MenuCadastrar();
-                        //Console.ReadLine();
+                        telaInicial.MenuCadastrar();                        
                         break;
 
                     case 'L': // listar empregados
-                        Empresa.ConsultarEmpregados();
+                        Empresa.ListarEmpregados();
                         break;
 
                     case 'P': // promover empregado
-                        Console.WriteLine();
-                        Console.WriteLine(OpcaoInicial + " placeholder promover");
-                        Console.ReadLine();
+                        Menu promover = new();
+                        promover.MenuPromover();
                         break;
 
                     case 'D': // demitir empregado
-                        Console.WriteLine();
-                        Console.WriteLine(OpcaoInicial + " placeholder demitir");
-                        Console.ReadLine();
+                        Menu demitir = new();
+                        demitir.MenuDemitir();
                         break;
                     
-                    case 'S': // listar salário anual                        
-                        Console.WriteLine(OpcaoInicial + " placeholder salario anual");
-                        Console.ReadLine();
+                    case 'S': // listar salário anual                      
+                        
+                        Menu salario = new();
+                        salario.MenuSalarioAnual();
                         break;
 
                     default:

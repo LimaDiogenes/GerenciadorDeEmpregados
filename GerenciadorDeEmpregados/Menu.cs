@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GerenciadorDeEmpregados
+﻿namespace GerenciadorDeEmpregados
 {
     internal class Menu
-    {
+    {     
         internal string Linha1 { get; set; } = "";
         internal string Linha2 { get; set; } = "";
         internal string Linha3 { get; set; } = "";
@@ -57,23 +49,280 @@ namespace GerenciadorDeEmpregados
             return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, posicionar o cursor, e retornar a opcao do usuario
         }
 
+        internal void MenuDemitir() // cria menu para demitir
+        {
+
+            Menu demitir = new();
+        labelInicioDemissao:
+            demitir.Linha2 = "DEMISSÃO - DIGITE O NOME DO EMPREGADO A SER DEMITIDO";
+            demitir.Linha5 = "PRIMEIRO NOME:       [                                   ]";
+            demitir.Linha6 = "SOBRENOME:           [                                   ]";
+
+            demitir.ImprimirMenuVoid(46, 5);
+            string nome = Console.ReadLine().ToUpper().Trim();
+            Console.SetCursorPosition(46, 6);
+            string sobrenome = Console.ReadLine().ToUpper().Trim();
+
+            foreach (Empregado empregado in Empresa.empregados)
+            {
+                if (nome != empregado.Nome || sobrenome != empregado.Sobrenome)
+                {
+                    continue;
+                }
+                else
+                {
+
+                    while (true)
+                    {
+                        Menu confirma = new();
+
+                        confirma.Linha4 = $"|||   ATENÇÂO: EMPREGADO(A) SERÁ EXCLUÍDO DA BASE DE DADOS!   |||";
+
+                        confirma.Linha10 = $"DESEJA DEMITIR O(A) EMPREGADO(A) {empregado.Nome} {empregado.Sobrenome}?";
+                        confirma.Linha13 = $"|||   ESTA AÇÃO NÃO PODERÁ SER DESFEITA!   |||";
+                        confirma.Linha15 = "[ ]";
+                        confirma.Linha17 = "[C] CONFIRMAR ||| [Q] SAIR";
+
+                        char confirmacao = confirma.MenuRetornaChar(52, 15, ConsoleColor.Yellow);
+
+                        switch (confirmacao)
+                        {
+                            case 'C':
+                                {
+                                    Empresa.Demitir(empregado);
+                                    
+                                    Linha4 = "  _____  ______ __  __ _____ _______ _____ _____   ____  _ ";
+                                    Linha5 = " |  __ \\|  ____|  \\/  |_   _|__   __|_   _|  __ \\ / __ \\| |";
+                                    Linha6 = " | |  | | |__  | \\  / | | |    | |    | | | |  | | |  | | |";
+                                    Linha7 = " | |  | |  __| | |\\/| | | |    | |    | | | |  | | |  | | |";
+                                    Linha8 = " | |__| | |____| |  | |_| |_   | |   _| |_| |__| | |__| |_|";
+                                    Linha9 = " |_____/|______|_|  |_|_____|  |_|  |_____|_____/ \\____/(_)";
+
+                                    Linha14 = $"{empregado.Nome} {empregado.Sobrenome}, matrícula {empregado.Matricula} foi demitido com sucesso!";
+                                    
+
+                                    Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
+                                    ImprimirMenuVoid(52, 21, ConsoleColor.DarkRed);
+                                    Console.ReadLine();
+                                    return; // retorno void para sair do programa
+                                }
+                            case 'Q':
+                                {
+                                    return;
+                                }
+                            default:
+                                {
+                                    continue;
+                                }
+
+                        }
+
+                    }
+                }
+            }
+            demitir.Linha10 = "Empregado não encontrado!"; // só chega aqui se não encontrar empregado
+            demitir.Linha15 = "[C] CONTINUAR       [Q] SAIR";
+            demitir.Linha14 = "[ ]";
+            while (true)
+            {
+                char opcao = demitir.MenuRetornaChar(52, 14);
+
+                switch (opcao)
+                {
+                    case 'C':
+                        {
+                            demitir.Linha10 = "";
+                            goto labelInicioDemissao;
+                        }
+                    case 'Q':
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            continue;
+                        }
+                }
+            }
+
+
+        }
+
+        internal void MenuPromover()
+        {
+
+            Menu promover = new();
+        labelInicioPromocao:
+            promover.Linha2 = "PROMOÇÃO - DIGITE O NOME DO EMPREGADO A SER PROMOVIDO";
+            promover.Linha5 = "PRIMEIRO NOME:       [                                   ]";
+            promover.Linha6 = "SOBRENOME:           [                                   ]";
+
+            promover.ImprimirMenuVoid(46, 5);
+            string nome = Console.ReadLine().ToUpper().Trim();
+            Console.SetCursorPosition(46, 6);
+            string sobrenome = Console.ReadLine().ToUpper().Trim();
+
+            foreach (Empregado empregado in Empresa.empregados)
+            {
+                if (nome != empregado.Nome || sobrenome != empregado.Sobrenome)
+                {
+                    continue;
+                }
+                else
+                {
+
+                    while (true)
+                    {
+                        Menu confirma = new();
+
+                        confirma.Linha10 = $"DESEJA PROMOVER O(A) EMPREGADO(A) {empregado.Nome} {empregado.Sobrenome}?";
+                        confirma.Linha15 = "[ ]";
+                        confirma.Linha17 = "[C] CONFIRMAR ||| [Q] SAIR";
+
+                        char confirmacao = confirma.MenuRetornaChar(52, 15);
+
+                        switch (confirmacao)
+                        {
+                            case 'C':
+                                {
+                                    Linha4 = "  _____  _____   ____  __  __  ______      _______ _____   ____  _ ";
+                                    Linha5 = " |  __ \\|  __ \\ / __ \\|  \\/  |/ __ \\ \\    / /_   _|  __ \\ / __ \\| |";
+                                    Linha6 = " | |__) | |__) | |  | | \\  / | |  | \\ \\  / /  | | | |  | | |  | | |";
+                                    Linha7 = " |  ___/|  _  /| |  | | |\\/| | |  | |\\ \\/ /   | | | |  | | |  | | |";
+                                    Linha8 = " | |    | | \\ \\| |__| | |  | | |__| | \\  /   _| |_| |__| | |__| |_|";
+                                    Linha9 = " |_|    |_|  \\_\\\\____/|_|  |_|\\____/   \\/   |_____|_____/ \\____/(_)";
+
+                                    Linha13 = $"Salário atual de {empregado.Nome} {empregado.Sobrenome}, matrícula {empregado.Matricula} era de R${empregado.Salario:F2}";
+                                    Linha15 = $"O novo salário será de R${Empresa.Promover(empregado):F2}";
+
+                                    Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
+                                    ImprimirMenuVoid(52, 21, ConsoleColor.DarkGreen);
+                                    Console.ReadLine();
+                                    return; // retorno void para sair do programa
+                                }
+                            case 'Q':
+                                {
+                                    return;
+                                }
+                            default:
+                                {
+                                    continue;
+                                }
+
+                        }
+
+                    }
+                }
+            }
+            promover.Linha10 = "Empregado não encontrado!"; // só chega aqui se não encontrar empregado
+            promover.Linha15 = "[C] CONTINUAR       [Q] SAIR";
+            promover.Linha14 = "[ ]";
+            while (true)
+            {
+                char opcao = promover.MenuRetornaChar(52, 14);
+
+                switch (opcao)
+                {
+                    case 'C':
+                        {
+                            promover.Linha10 = "";
+                            goto labelInicioPromocao;
+                        }
+                    case 'Q':
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            continue;
+                        }
+                }
+            }
+
+
+        }
+
+        internal void MenuSalarioAnual()
+        {
+
+            Menu consultar = new();
+        labelInicioConsulta:
+            consultar.Linha2 = "PESQUISA DE FUNCIONÁRIOS";
+            consultar.Linha5 = "PRIMEIRO NOME:       [                                   ]";
+            consultar.Linha6 = "SOBRENOME:           [                                   ]";
+
+            consultar.ImprimirMenuVoid(46, 5);
+            string nome = Console.ReadLine().ToUpper().Trim();
+            Console.SetCursorPosition(46, 6);
+            string sobrenome = Console.ReadLine().ToUpper().Trim();
+
+            foreach (Empregado empregado in Empresa.empregados)
+            {
+                if (nome != empregado.Nome || sobrenome != empregado.Sobrenome)
+                {
+                    continue;
+                }
+                else
+                {
+
+                    Linha4 = "   _____         _               _____  _____ ____             _   _ _    _         _      ";
+                    Linha5 = "  / ____|  /\\   | |        /\\   |  __ \\|_   _/ __ \\      /\\   | \\ | | |  | |  /\\   | |     ";
+                    Linha6 = " | (___   /  \\  | |       /  \\  | |__) | | || |  | |    /  \\  |  \\| | |  | | /  \\  | |     ";
+                    Linha7 = "  \\___ \\ / /\\ \\ | |      / /\\ \\ |  _  /  | || |  | |   / /\\ \\ | . ` | |  | |/ /\\ \\ | |     ";
+                    Linha8 = "  ____) / ____ \\| |____ / ____ \\| | \\ \\ _| || |__| |  / ____ \\| |\\  | |__| / ____ \\| |____ ";
+                    Linha9 = " |_____/_/    \\_\\______/_/    \\_\\_|  \\_\\_____\\____/  /_/    \\_\\_| \\_|\\____/_/    \\_\\______|";
+
+                    Linha15 = $"Salário anual de {empregado.Nome} {empregado.Sobrenome}, matrícula {empregado.Matricula} é de R${empregado.SalarioAnual():F2}";
+                    Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
+                    ImprimirMenuVoid(52, 21);
+                    Console.ReadLine();
+                    return; // retorno void para sair do programa
+                }
+            }
+            consultar.Linha10 = "Empregado não encontrado!"; // só chega aqui se não encontrar empregado
+            consultar.Linha15 = "[C] CONTINUAR       [Q] SAIR";
+            consultar.Linha14 = "[ ]";
+            while (true)
+            {
+                char opcao = consultar.MenuRetornaChar(52, 14);
+
+                switch (opcao)
+                {
+                    case 'C':
+                        {
+                            goto labelInicioConsulta;
+                        }
+                    case 'Q':
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            continue;
+                        }
+                }
+            }
+
+        }
+
         internal void MenuCadastrar()
         {
-            bool loopCadastro = true;                             
-            
-                while (loopCadastro)
+            Empregado novoEmpregado;
+            bool loopCadastro = true;
+
+
+            while (loopCadastro)
             {
                 Console.ForegroundColor = ConsoleColor.White; // ajusta cor
 
                 Menu cadastrar = new();
 
-                cadastrar.Linha4  = "MATRÍCULA:           [                  ] [APENAS NÚMEROS]";
-                cadastrar.Linha5  = "PRIMEIRO NOME:       [                                   ]";
-                cadastrar.Linha6  = "SOBRENOME:           [                                   ]";
-                cadastrar.Linha7  = "IDADE:               [                  ] [APENAS NÚMEROS]";
-                cadastrar.Linha8  = "DATA NASCIMENTO      [                  ] [  dd/mm/aaaa  ]";
-                cadastrar.Linha9  = "DATA CONTRATAÇÃO:    [                  ] [  dd/mm/aaaa  ]";
-                cadastrar.Linha10 = "SALÁRIO:             [                  ] [  dd/mm/aaaa  ]";
+                cadastrar.Linha2 = "[C] CADASTRO COMPLETO    |  [ ]  |    [S] CADASTRO SIMPLES";
+
+                cadastrar.Linha5 = "PRIMEIRO NOME:       [                                   ]";
+                cadastrar.Linha6 = "SOBRENOME:           [                                   ]";
+                cadastrar.Linha7 = "DATA NASCIMENTO      [                  ] [  dd/mm/aaaa  ]";
+                cadastrar.Linha12 = "|||   ATENÇÃO! NÃO USAR ACENTOS!   |||";
 
                 cadastrar.Linha19 = "[ ]";
                 cadastrar.Linha20 = "[C] CONFIRMAR     |     [ESC] VOLTAR AO MENU PRINCIPAL     |     [R] CORRIGIR";
@@ -88,31 +337,57 @@ namespace GerenciadorDeEmpregados
                 {
                     Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress); // event listener - ativado caso o usuario use ctrl+c - gera exceção
 
-                    Console.SetCursorPosition(46, 4);
-                    int matricula = int.Parse(Console.ReadLine());  // a criar geração aleatoria                
-                    Console.SetCursorPosition(46, 5);
-                    string nome = Console.ReadLine();
-                    Console.SetCursorPosition(46, 6);
-                    string sobrenome = Console.ReadLine();
-                    Console.SetCursorPosition(46, 7);
-                    int idade = int.Parse(Console.ReadLine());
-                    Console.SetCursorPosition(46, 8);
-                    DateOnly dataNascimento = DateOnly.Parse(Console.ReadLine());
-                    Console.SetCursorPosition(46, 9);
-                    DateOnly dataContratacao = DateOnly.Parse(Console.ReadLine());
-                    Console.SetCursorPosition(46, 10);
-                    double salario = double.Parse(Console.ReadLine());
-                    
-                    Console.SetCursorPosition(52, 19);
-                    char opcao = char.ToUpper(Console.ReadKey().KeyChar);
+                    Console.SetCursorPosition(53, 2);
+                    char tipoCadastro = char.ToUpper(Console.ReadKey().KeyChar);
 
-                    Empregado novoEmpregado = new(matricula, nome, sobrenome, idade, dataNascimento, dataContratacao, salario);
-
-                    void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e) // método do event listener (bloqueia ctrl+c)
+                    switch (tipoCadastro)
                     {
-                        e.Cancel = true;                        
+                        case 'C':
+                            {
+                                cadastrar.Linha8 = "DATA CONTRATAÇÃO:    [                  ] [  dd/mm/aaaa  ]";
+                                cadastrar.Linha9 = "SALÁRIO:             [                  ] [   00000.00   ]";
+                                cadastrar.ImprimirMenuVoid(46, 5); // imprime as linhas acima
+
+                                string nome = Console.ReadLine();
+                                Console.SetCursorPosition(46, 6);
+                                string sobrenome = Console.ReadLine();
+                                Console.SetCursorPosition(46, 7);
+                                DateOnly dataNascimento = DateOnly.Parse(Console.ReadLine());
+                                Console.SetCursorPosition(46, 8);
+                                DateOnly dataContratacao = DateOnly.Parse(Console.ReadLine());
+                                Console.SetCursorPosition(46, 9);
+                                double salario = double.Parse(Console.ReadLine());
+                                novoEmpregado = new(nome, sobrenome, dataNascimento, dataContratacao, salario);
+                                break;
+
+
+                            }
+                        case 'S':
+                            {
+                                Console.SetCursorPosition(46, 5);
+                                string nome = Console.ReadLine();
+                                Console.SetCursorPosition(46, 6);
+                                string sobrenome = Console.ReadLine();
+                                Console.SetCursorPosition(46, 7);
+                                DateOnly dataNascimento = DateOnly.Parse(Console.ReadLine());
+                                Console.SetCursorPosition(46, 8);
+                                novoEmpregado = new(nome, sobrenome, dataNascimento);
+                                break;
+                            }
+                        case '\u001B': // ESC
+                            {
+                                loopCadastro = false;
+                                return;
+                            }
+
+                        default:
+                            {
+                                continue;
+                            }
                     }
 
+                    Console.SetCursorPosition(52, 19);
+                    char opcao = char.ToUpper(Console.ReadKey().KeyChar);
 
                     switch (opcao)
                     {
@@ -121,10 +396,10 @@ namespace GerenciadorDeEmpregados
                                 Empresa.Cadastrar(novoEmpregado);
                                 while (true)
                                 {
-                                    
+
                                     Menu sucesso = new(); // cria nova tela para mensagem de sucesso
                                     sucesso.Linha12 = "Cadastrado com sucesso";
-                                    sucesso.Linha16 = "Esta tela fechará automaticamente";                                    
+                                    sucesso.Linha16 = "Esta tela fechará automaticamente";
                                     sucesso.ImprimirMenuVoid(52, 19, ConsoleColor.DarkGreen); // imprime tela acima
                                     Thread.Sleep(3000); // segura a tela por 3 segundos
 
@@ -150,14 +425,20 @@ namespace GerenciadorDeEmpregados
                             }
 
                     }
-                   
+
+
+                    void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e) // método do event listener (bloqueia ctrl+c)
+                    {
+                        e.Cancel = true;
+                    }
+
                 }
                 catch (Exception)
                 {
 
                     Menu default1 = new();
                     default1.Linha12 = "Opção inválida, digite novamente!";
-                    default1.Linha16 = "Esta tela fechará automaticamente";                    
+                    default1.Linha16 = "Esta tela fechará automaticamente";
                     default1.ImprimirMenuVoid(52, 19, ConsoleColor.DarkRed);
                     Thread.Sleep(3000);
                     continue;
@@ -170,7 +451,7 @@ namespace GerenciadorDeEmpregados
         }
 
         /// <summary>
-        /// Imprime na tela um menu, por padrão em branco. Usa as propriedades Linhas para imprimir as informações na tela.
+        /// Imprime um menu, por padrão em branco. Usa as propriedades Linhas para imprimir as informações na tela.
         /// Para ser usado com os demais metodos de menus, como TelaInicial, MenuCadastrar, Etc.
         /// </summary>
         /// <param name="posicaoX">"Ajusta a posição L-O em que o cursor ficará na tela"</param>
@@ -212,10 +493,17 @@ namespace GerenciadorDeEmpregados
 
         }
 
-        private char MenuRetornaChar(int posicaoX, int posicaoY, ConsoleColor cor = ConsoleColor.White) // substituir linhas pela informacao necessaria. Usar dentro da classe
+        /// <summary>
+        /// Imprime um menu, por padrão em branco. Retorna um 'char'. Usa as propriedades Linhas para imprimir as informações na tela.
+        /// </summary>
+        /// <param name="posicaoX">"Ajusta a posição L-O em que o cursor ficará na tela"</param>
+        /// <param name="posicaoY">"Ajusta a posição N-S em que o cursor ficará na tela"</param>
+        /// <param name="cor">"Seta a cor das informações. Ex. Uso: ConsoleColor.White"</param>
+        /// <returns></returns>
+        internal char MenuRetornaChar(int posicaoX, int posicaoY, ConsoleColor cor = ConsoleColor.White) // substituir linhas pela informacao necessaria. Usar dentro da classe
         {
             Console.SetCursorPosition(0, 0); // seta a posição do cursor para começar a impressão
-            
+
             Console.ForegroundColor = cor; // ajusta a cor
             TextoCentralizado("", starter: '╔', sep: '═', ends: '╗');
             TextoCentralizado(SubstituirPalavras(Linha1, starter: ' ', ends: ' ', width: 94));
@@ -254,8 +542,7 @@ namespace GerenciadorDeEmpregados
         }
 
         /// <summary>       
-        /// cria um texto centralizado, usado para montar a tela no console, aceitando como argumentos:
-        /// 
+        /// cria um texto centralizado, usado para montar a tela no console.        /// 
         /// Todos os parâmetros são opcionais, e com valores padrão criam linhas com margem nas laterais
         /// Caracteres para usar como starter / ends / sep:{ ╔ ╗ ╚ ╝ ═ } Com estes é possível montar linhas do topo e do final
         /// Altura é controlada pelo número de linhas utilizado
@@ -265,8 +552,9 @@ namespace GerenciadorDeEmpregados
         /// <param name="ends">ultimo caractere da linha (margem)</param>
         /// <param name="sep">caracter para usar como separador, que aparecerá antes e depois do texto até o tamanho da tela</param>
         /// <param name="width">largura</param>                
-        static void TextoCentralizado(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100)
+        internal static void TextoCentralizado(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100)
         {
+
             int padWidth = (width - text.Length) / 2; // encontra a metade da largura, excluindo o tamanho do texto criado
             string paddedText = text.PadLeft(text.Length + padWidth, sep).PadRight(width, sep); // PadLeft e PadRight criam caracteres de preenchimento "sep" em ambos os lados do texto, deixando centralizado na tela  
             Console.WriteLine("  " + starter + paddedText + ends + "  "); // cria o texto centralizado na tela usando starter e ends como margem
@@ -282,7 +570,7 @@ namespace GerenciadorDeEmpregados
         /// <param name="sep"></param>
         /// <param name="width"></param>
         /// <returns></returns>
-        static string SubstituirPalavras(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100) // cria um texto centralizado, aceitando como argumentos "end = primeiro e ultimo caractere da linha", "sep = caracter para usar como separador, que aparecerá antes e depois do texto até o tamanho da tela", "width = largura" todos os parâmetros são opcionais
+        internal static string SubstituirPalavras(string text = "", char starter = '║', char ends = '║', char sep = ' ', int width = 100) // cria um texto centralizado, aceitando como argumentos "end = primeiro e ultimo caractere da linha", "sep = caracter para usar como separador, que aparecerá antes e depois do texto até o tamanho da tela", "width = largura" todos os parâmetros são opcionais
         {
             int padWidth = (width - text.Length) / 2; // encontra a metada da largura, excluindo o tamanho do texto criado
             string palavra = text.PadLeft(text.Length + padWidth, sep).PadRight(width, sep); // PadLeft e PadRight criam caracteres de preenchimento "sep" em ambos os lados do texto, deixando centralizado na tela  
