@@ -26,7 +26,8 @@
                         break;
 
                     case 'L': // listar empregados
-                        Empresa.ListarEmpregados();
+                        Menu listar = new();
+                        listar.MenuListarEmpregados();
                         break;
 
                     case 'P': // promover empregado

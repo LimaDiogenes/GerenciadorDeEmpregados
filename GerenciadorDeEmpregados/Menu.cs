@@ -49,7 +49,102 @@
             return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, posicionar o cursor, e retornar a opcao do usuario
         }
 
-        internal void MenuDemitir() // cria menu para demitir
+        internal void MenuListarEmpregados()
+        {
+            List<Empregado> empregadosOrdenados = Empresa.empregados.OrderBy(empregado => empregado.Matricula).ToList(); // cria uma nova lista ordenada por matriculas
+            int NumeroFunc = empregadosOrdenados.Count;
+            int indice1 = 0;
+            int indice2 = 1;
+            int indice3 = 2;
+            int indice4 = 3;
+            int indice5 = 4;
+            int indice6 = 5;
+
+            try
+            {
+                Menu telaConsulta = new();
+            labelInicioConsulta:
+                telaConsulta.Linha1 = $"Relatório de Funcionários. Quantidade de pessoas cadastradas: {NumeroFunc}";
+                telaConsulta.Linha3 = "===================================================================================";
+                telaConsulta.Linha4 = $"Matrícula: {empregadosOrdenados[indice1].Matricula}, Nome: {empregadosOrdenados[indice1].Nome} {empregadosOrdenados[indice1].Sobrenome}, Nascimento: {empregadosOrdenados[indice1].DataNascimento}";
+                telaConsulta.Linha5 = $"Idade: {empregadosOrdenados[indice1].Idade} anos, Salário: {empregadosOrdenados[indice1].Salario}, Contratação: {empregadosOrdenados[indice1].DataContratacao}";
+                telaConsulta.Linha6 = telaConsulta.Linha3;
+                if (NumeroFunc >= 2) // se a lista tiver 2 funcionarios ou mais, essas linhas são geradas
+                {
+                    telaConsulta.Linha7 = $"Matrícula: {empregadosOrdenados[indice2].Matricula}, Nome: {empregadosOrdenados[indice2].Nome} {empregadosOrdenados[indice2].Sobrenome}, Nascimento: {empregadosOrdenados[indice2].DataNascimento}";
+                    telaConsulta.Linha8 = $"Idade: {empregadosOrdenados[indice2].Idade} anos, Salário: {empregadosOrdenados[indice2].Salario}, Contratação: {empregadosOrdenados[indice2].DataContratacao}";
+                    telaConsulta.Linha9 = telaConsulta.Linha3;
+                }
+                if (NumeroFunc >= 3)
+                {
+                    telaConsulta.Linha10 = $"Matrícula: {empregadosOrdenados[indice3].Matricula}, Nome: {empregadosOrdenados[indice3].Nome} {empregadosOrdenados[indice3].Sobrenome}, Nascimento: {empregadosOrdenados[indice3].DataNascimento}";
+                    telaConsulta.Linha11 = $"Idade: {empregadosOrdenados[indice3].Idade} anos, Salário: {empregadosOrdenados[indice3].Salario}, Contratação: {empregadosOrdenados[indice3].DataContratacao}";
+                    telaConsulta.Linha12 = telaConsulta.Linha3;
+                }
+                if (NumeroFunc >= 3)
+                {
+                    telaConsulta.Linha13 = $"Matrícula: {empregadosOrdenados[indice4].Matricula}, Nome: {empregadosOrdenados[indice4].Nome} {empregadosOrdenados[indice4].Sobrenome}, Nascimento: {empregadosOrdenados[indice4].DataNascimento}";
+                    telaConsulta.Linha14 = $"Idade: {empregadosOrdenados[indice4].Idade} anos, Salário: {empregadosOrdenados[indice4].Salario}, Contratação: {empregadosOrdenados[indice4].DataContratacao}";
+                    telaConsulta.Linha15 = telaConsulta.Linha3;
+                }
+                if (NumeroFunc >= 4)
+                {
+                    telaConsulta.Linha16 = $"Matrícula: {empregadosOrdenados[indice5].Matricula}, Nome: {empregadosOrdenados[indice5].Nome} {empregadosOrdenados[indice5].Sobrenome}, Nascimento: {empregadosOrdenados[indice5].DataNascimento}";
+                    telaConsulta.Linha17 = $"Idade: {empregadosOrdenados[indice5].Idade} anos, Salário: {empregadosOrdenados[indice5].Salario}, Contratação: {empregadosOrdenados[indice5].DataContratacao}";
+                    telaConsulta.Linha18 = telaConsulta.Linha3;
+                }
+
+                if (NumeroFunc >= 5)
+                {
+                    telaConsulta.Linha19 = $"Matrícula: {empregadosOrdenados[indice6].Matricula}, Nome: {empregadosOrdenados[indice6].Nome} {empregadosOrdenados[indice6].Sobrenome}, Nascimento: {empregadosOrdenados[indice6].DataNascimento}";
+                    telaConsulta.Linha20 = $"Idade: {empregadosOrdenados[indice6].Idade} anos, Salário: {empregadosOrdenados[indice6].Salario}, Contratação: {empregadosOrdenados[indice6].DataContratacao}";
+                    telaConsulta.Linha21 = telaConsulta.Linha3;
+                }
+                telaConsulta.Linha24 = "[ ]";
+                telaConsulta.Linha25 = "[D] DESCER LISTA     |     [Q] SAIR     |     [S] SUBIR LISTA";
+
+                telaConsulta.ImprimirMenuVoid(52, 24);
+                char opcao = char.ToUpper(Console.ReadKey().KeyChar);
+
+                if (opcao == 'D') // adiciona 1 aos indices, para "rolar a tela" para baixo
+                {
+                    if (indice6 < (NumeroFunc - 1))
+                    {
+                        indice1++; indice2++; indice3++; indice4++; indice5++; indice6++;
+                    }
+                    goto labelInicioConsulta;
+                }
+                else if (opcao == 'S') // Oposto da de cima. Retorna ao começo da tela para recomeçar a impressão
+                {
+                    if (indice1 > 0)
+                    {
+                        indice1--; indice2--; indice3--; indice4--; indice5--; indice6--;
+                    }
+                    goto labelInicioConsulta;
+                }
+                else if (opcao == 'Q') // Sair
+                {
+                    return;
+                }
+                else
+                {
+                    goto labelInicioConsulta; // mantem tela ativa caso outra tecla seja apertada, retornando ao inicio 
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Menu consultar = new();
+                consultar.Linha1 = "Relatório de Funcionários";
+                consultar.Linha4 = "=================================================================================";
+                consultar.Linha5 = "Não há empregados cadastrados!";
+                consultar.Linha6 = consultar.Linha4;
+                consultar.Linha20 = "Aperte qualquer tecla para sair!";
+                consultar.ImprimirMenuVoid(52, 2);
+
+            }
+        }
+
+            internal void MenuDemitir() // cria menu para demitir
         {
 
             Menu demitir = new();
