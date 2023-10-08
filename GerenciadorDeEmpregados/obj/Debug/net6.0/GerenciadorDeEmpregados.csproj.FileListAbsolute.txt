@@ -1,0 +1,14 @@
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.GeneratedMSBuildEditorConfig.editorconfig
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.AssemblyInfoInputs.cache
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.AssemblyInfo.cs
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.csproj.CoreCompileInputs.cache
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.exe
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.deps.json
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.runtimeconfig.json
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.dll
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.pdb
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.dll
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\refint\GerenciadorDeEmpregados.dll
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.pdb
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.genruntimeconfig.cache
+F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\ref\GerenciadorDeEmpregados.dll

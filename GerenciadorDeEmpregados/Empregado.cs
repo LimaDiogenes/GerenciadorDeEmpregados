@@ -41,8 +41,7 @@
             if (hoje.Month == DataNascimento.Month && hoje.Day < DataNascimento.Day) // se estiver no mesmo mes, compara os dias para saber se ja fez aniversario
             {
                 Idade--; // caso ainda não fez, diminui 1 da idade
-            }
-            Matricula = Empresa.GerarMatricula();
+            }            
         }
 
         //construtor2 - dados basicos
