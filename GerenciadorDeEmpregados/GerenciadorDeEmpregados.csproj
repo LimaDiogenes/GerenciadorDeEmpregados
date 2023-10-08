@@ -7,4 +7,40 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\GerenciadorDeEmpregados.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\GerenciadorDeEmpregados.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\GerenciadorDeEmpregados.deps.json" />
+    <Content Include="bin\Debug\net6.0\GerenciadorDeEmpregados.runtimeconfig.json" />
+    <Content Include="obj\Debug\net6.0\GerenciadorDeEmpregados.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\GerenciadorDeEmpregados.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\BKPBD.csv" />
+    <None Include="bin\Debug\net6.0\csvDatabase.csv" />
+    <None Include="bin\Debug\net6.0\GerenciadorDeEmpregados.dll" />
+    <None Include="bin\Debug\net6.0\GerenciadorDeEmpregados.exe" />
+    <None Include="bin\Debug\net6.0\GerenciadorDeEmpregados.pdb" />
+    <None Include="obj\Debug\net6.0\apphost.exe" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.assets.cache" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.dll" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net6.0\GerenciadorDeEmpregados.pdb" />
+    <None Include="obj\Debug\net6.0\refint\GerenciadorDeEmpregados.dll" />
+    <None Include="obj\Debug\net6.0\ref\GerenciadorDeEmpregados.dll" />
+    <None Include="obj\GerenciadorDeEmpregados.csproj.nuget.g.props" />
+    <None Include="obj\GerenciadorDeEmpregados.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
 </Project>
