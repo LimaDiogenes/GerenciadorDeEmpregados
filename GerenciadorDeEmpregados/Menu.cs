@@ -1,35 +1,35 @@
 ﻿namespace GerenciadorDeEmpregados
 {
     internal class Menu
-    {     
-        internal string Linha1 { get; set; } = "";
-        internal string Linha2 { get; set; } = "";
-        internal string Linha3 { get; set; } = "";
-        internal string Linha4 { get; set; } = "";
-        internal string Linha5 { get; set; } = "";
-        internal string Linha6 { get; set; } = "";
-        internal string Linha7 { get; set; } = "";
-        internal string Linha8 { get; set; } = "";
-        internal string Linha9 { get; set; } = "";
-        internal string Linha10 { get; set; } = "";
-        internal string Linha11 { get; set; } = "";
-        internal string Linha12 { get; set; } = "";
-        internal string Linha13 { get; set; } = "";
-        internal string Linha14 { get; set; } = "";
-        internal string Linha15 { get; set; } = "";
-        internal string Linha16 { get; set; } = "";
-        internal string Linha17 { get; set; } = "";
-        internal string Linha18 { get; set; } = "";
-        internal string Linha19 { get; set; } = "";
-        internal string Linha20 { get; set; } = "";
-        internal string Linha21 { get; set; } = "";
-        internal string Linha22 { get; set; } = "";
-        internal string Linha23 { get; set; } = "";
-        internal string Linha24 { get; set; } = "";
-        internal string Linha25 { get; set; } = "";
+    {
+        private string Linha1 { get; set; } = "";
+        private string Linha2 { get; set; } = "";
+        private string Linha3 { get; set; } = "";
+        private string Linha4 { get; set; } = "";
+        private string Linha5 { get; set; } = "";
+        private string Linha6 { get; set; } = "";
+        private string Linha7 { get; set; } = "";
+        private string Linha8 { get; set; } = "";
+        private string Linha9 { get; set; } = "";
+        private string Linha10 { get; set; } = "";
+        private string Linha11 { get; set; } = "";
+        private string Linha12 { get; set; } = "";
+        private string Linha13 { get; set; } = "";
+        private string Linha14 { get; set; } = "";
+        private string Linha15 { get; set; } = "";
+        private string Linha16 { get; set; } = "";
+        private string Linha17 { get; set; } = "";
+        private string Linha18 { get; set; } = "";
+        private string Linha19 { get; set; } = "";
+        private string Linha20 { get; set; } = "";
+        private string Linha21 { get; set; } = "";
+        private string Linha22 { get; set; } = "";
+        private string Linha23 { get; set; } = "";
+        private string Linha24 { get; set; } = "";
+        private string Linha25 { get; set; } = "";
 
         internal Menu() // construtor chama tela inicial, em branco, cria apenas margens da tela
-        {            
+        {
             Console.Clear();
             ImprimirMenuVoid(52, 15, ConsoleColor.White);
         }
@@ -67,37 +67,37 @@
                 telaConsulta.Linha1 = $"Relatório de Funcionários. Quantidade de pessoas cadastradas: {NumeroFunc}";
                 telaConsulta.Linha3 = "===================================================================================";
                 telaConsulta.Linha4 = $"Matrícula: {empregadosOrdenados[indice1].Matricula}, Nome: {empregadosOrdenados[indice1].Nome} {empregadosOrdenados[indice1].Sobrenome}, Nascimento: {empregadosOrdenados[indice1].DataNascimento}";
-                telaConsulta.Linha5 = $"Idade: {empregadosOrdenados[indice1].Idade} anos, Salário: {empregadosOrdenados[indice1].Salario}, Contratação: {empregadosOrdenados[indice1].DataContratacao}";
+                telaConsulta.Linha5 = $"Idade: {empregadosOrdenados[indice1].Idade} anos, Salário: R${empregadosOrdenados[indice1].Salario :F2}, Contratação: {empregadosOrdenados[indice1].DataContratacao}";
                 telaConsulta.Linha6 = telaConsulta.Linha3;
                 if (NumeroFunc >= 2) // se a lista tiver 2 funcionarios ou mais, essas linhas são geradas
                 {
                     telaConsulta.Linha7 = $"Matrícula: {empregadosOrdenados[indice2].Matricula}, Nome: {empregadosOrdenados[indice2].Nome} {empregadosOrdenados[indice2].Sobrenome}, Nascimento: {empregadosOrdenados[indice2].DataNascimento}";
-                    telaConsulta.Linha8 = $"Idade: {empregadosOrdenados[indice2].Idade} anos, Salário: {empregadosOrdenados[indice2].Salario}, Contratação: {empregadosOrdenados[indice2].DataContratacao}";
+                    telaConsulta.Linha8 = $"Idade: {empregadosOrdenados[indice2].Idade} anos, Salário: R${empregadosOrdenados[indice2].Salario :F2}, Contratação: {empregadosOrdenados[indice2].DataContratacao}";
                     telaConsulta.Linha9 = telaConsulta.Linha3;
                 }
                 if (NumeroFunc >= 3)
                 {
                     telaConsulta.Linha10 = $"Matrícula: {empregadosOrdenados[indice3].Matricula}, Nome: {empregadosOrdenados[indice3].Nome} {empregadosOrdenados[indice3].Sobrenome}, Nascimento: {empregadosOrdenados[indice3].DataNascimento}";
-                    telaConsulta.Linha11 = $"Idade: {empregadosOrdenados[indice3].Idade} anos, Salário: {empregadosOrdenados[indice3].Salario}, Contratação: {empregadosOrdenados[indice3].DataContratacao}";
+                    telaConsulta.Linha11 = $"Idade: {empregadosOrdenados[indice3].Idade} anos, Salário: R${empregadosOrdenados[indice3].Salario :F2}, Contratação: {empregadosOrdenados[indice3].DataContratacao}";
                     telaConsulta.Linha12 = telaConsulta.Linha3;
                 }
                 if (NumeroFunc >= 3)
                 {
                     telaConsulta.Linha13 = $"Matrícula: {empregadosOrdenados[indice4].Matricula}, Nome: {empregadosOrdenados[indice4].Nome} {empregadosOrdenados[indice4].Sobrenome}, Nascimento: {empregadosOrdenados[indice4].DataNascimento}";
-                    telaConsulta.Linha14 = $"Idade: {empregadosOrdenados[indice4].Idade} anos, Salário: {empregadosOrdenados[indice4].Salario}, Contratação: {empregadosOrdenados[indice4].DataContratacao}";
+                    telaConsulta.Linha14 = $"Idade: {empregadosOrdenados[indice4].Idade} anos, Salário: R${empregadosOrdenados[indice4].Salario :F2}, Contratação: {empregadosOrdenados[indice4].DataContratacao}";
                     telaConsulta.Linha15 = telaConsulta.Linha3;
                 }
                 if (NumeroFunc >= 4)
                 {
                     telaConsulta.Linha16 = $"Matrícula: {empregadosOrdenados[indice5].Matricula}, Nome: {empregadosOrdenados[indice5].Nome} {empregadosOrdenados[indice5].Sobrenome}, Nascimento: {empregadosOrdenados[indice5].DataNascimento}";
-                    telaConsulta.Linha17 = $"Idade: {empregadosOrdenados[indice5].Idade} anos, Salário: {empregadosOrdenados[indice5].Salario}, Contratação: {empregadosOrdenados[indice5].DataContratacao}";
+                    telaConsulta.Linha17 = $"Idade: {empregadosOrdenados[indice5].Idade} anos, Salário: R${empregadosOrdenados[indice5].Salario :F2}, Contratação: {empregadosOrdenados[indice5].DataContratacao}";
                     telaConsulta.Linha18 = telaConsulta.Linha3;
                 }
 
                 if (NumeroFunc >= 5)
                 {
                     telaConsulta.Linha19 = $"Matrícula: {empregadosOrdenados[indice6].Matricula}, Nome: {empregadosOrdenados[indice6].Nome} {empregadosOrdenados[indice6].Sobrenome}, Nascimento: {empregadosOrdenados[indice6].DataNascimento}";
-                    telaConsulta.Linha20 = $"Idade: {empregadosOrdenados[indice6].Idade} anos, Salário: {empregadosOrdenados[indice6].Salario}, Contratação: {empregadosOrdenados[indice6].DataContratacao}";
+                    telaConsulta.Linha20 = $"Idade: {empregadosOrdenados[indice6].Idade} anos, Salário: R${empregadosOrdenados[indice6].Salario :F2}, Contratação: {empregadosOrdenados[indice6].DataContratacao}";
                     telaConsulta.Linha21 = telaConsulta.Linha3;
                 }
                 telaConsulta.Linha24 = "[ ]";
@@ -138,13 +138,14 @@
                 consultar.Linha4 = "=================================================================================";
                 consultar.Linha5 = "Não há empregados cadastrados!";
                 consultar.Linha6 = consultar.Linha4;
-                consultar.Linha20 = "Aperte qualquer tecla para sair!";
+                consultar.Linha20 = "Esta tela fechará automaticamente";
                 consultar.ImprimirMenuVoid(52, 2);
+                Thread.Sleep(3000);
 
             }
-        }
+        } // menu para listar todos os empregados
 
-            internal void MenuDemitir() // cria menu para demitir
+        internal void MenuDemitir() // cria menu para demitir
         {
 
             Menu demitir = new();
@@ -185,7 +186,7 @@
                             case 'C':
                                 {
                                     Empresa.Demitir(empregado);
-                                    
+
                                     Linha4 = "  _____  ______ __  __ _____ _______ _____ _____   ____  _ ";
                                     Linha5 = " |  __ \\|  ____|  \\/  |_   _|__   __|_   _|  __ \\ / __ \\| |";
                                     Linha6 = " | |  | | |__  | \\  / | | |    | |    | | | |  | | |  | | |";
@@ -194,7 +195,7 @@
                                     Linha9 = " |_____/|______|_|  |_|_____|  |_|  |_____|_____/ \\____/(_)";
 
                                     Linha14 = $"{empregado.Nome} {empregado.Sobrenome}, matrícula {empregado.Matricula} foi demitido com sucesso!";
-                                    
+
 
                                     Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
                                     ImprimirMenuVoid(52, 21, ConsoleColor.DarkRed);
@@ -335,7 +336,7 @@
             }
 
 
-        }
+        } // menu para promover
 
         internal void MenuSalarioAnual()
         {
@@ -398,7 +399,7 @@
                 }
             }
 
-        }
+        } // menu para listar salario anual de funconario especifico
 
         internal void MenuCadastrar()
         {
@@ -440,7 +441,7 @@
                         case 'C':
                             {
                                 cadastrar.Linha8 = "DATA CONTRATAÇÃO:    [                  ] [  dd/mm/aaaa  ]";
-                                cadastrar.Linha9 = "SALÁRIO:             [                  ] [   00000.00   ]";
+                                cadastrar.Linha9 = "SALÁRIO:             [                  ] [   00000,00   ]";
                                 cadastrar.ImprimirMenuVoid(46, 5); // imprime as linhas acima
 
                                 string nome = Console.ReadLine();
@@ -543,6 +544,14 @@
             }
 
 
+        } // menu para cadastrar novo empregado
+
+        internal void NaoEncontrado() // menu para exibir erro caso não exista arquivo de BD
+        {
+            Linha10 = "Arquivo Base de Dados não encontrado!";
+            Linha15 = "Não existem funcionários cadastrados!";
+            ImprimirMenuVoid(52, 20, ConsoleColor.Red);
+            Thread.Sleep(2500);
         }
 
         /// <summary>

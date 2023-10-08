@@ -2,7 +2,7 @@
 {
     internal class Empregado
     {
-        internal int Matricula { get; private set; }
+        internal int Matricula { get; private set; } 
         internal string Nome { get; private set; }
         internal string Sobrenome { get; private set; }
         internal DateOnly DataNascimento { get; private set; }
@@ -14,7 +14,7 @@
         {
             get
             { return salario; }
-            private set // checando para permitir atribuir o novo valor apenas se for > minimo
+            private set // checando para permitir atribuir o novo valor apenas se for > minimo.
             {
                 if (value > salario)
                 {
@@ -22,7 +22,6 @@
                 }
             }
         }
-
 
         // construtor1 - dados completos
         internal Empregado(string nome, string sobrenome, DateOnly dataNascimento, DateOnly dataContratacao, double salario)
@@ -43,7 +42,7 @@
             {
                 Idade--; // caso ainda não fez, diminui 1 da idade
             }
-            Matricula = Empresa.GerarMatricula();            
+            Matricula = Empresa.GerarMatricula();
         }
 
         //construtor2 - dados basicos
@@ -64,18 +63,17 @@
             }
             Matricula = Empresa.GerarMatricula();
             DataContratacao = DateOnly.FromDateTime(DateTime.Now); // Cadastra data de início como dia atual
-
-
         }
-
 
         internal double SalarioAnual() // Calcula o salário anual multiplicando o salário mensal por 12
         {
             return Salario * 12;
         }
 
-
-
-
+        internal void InfoBD(int matricula, double salario) // usado para passar salario e matricula quando lido da BD. Usado para proteger / manter set privado
+        {
+            Matricula = matricula;
+            Salario = salario;
+        }
     }
 }
