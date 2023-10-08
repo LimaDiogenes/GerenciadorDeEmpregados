@@ -20,7 +20,7 @@
 
         internal static double Promover(Empregado empregado) // nesse caso, como não existe função no programa, promover apenas aumenta o salário
         {
-            double porcentagem = (empregado.salario / 100) * 10; // calcula 10% do salario
+            double porcentagem = (empregado.salario / 10); // calcula 10% do salario
             empregado.salario = empregado.salario + porcentagem;
             BaseDados.Gravar();
             return empregado.Salario;            
