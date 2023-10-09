@@ -12,3 +12,17 @@ F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\
 F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.pdb
 F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.genruntimeconfig.cache
 F:\vsprojects\2modulo\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\ref\GerenciadorDeEmpregados.dll
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.exe
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.deps.json
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.runtimeconfig.json
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.dll
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\bin\Debug\net6.0\GerenciadorDeEmpregados.pdb
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.AssemblyInfoInputs.cache
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.AssemblyInfo.cs
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.dll
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\refint\GerenciadorDeEmpregados.dll
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.pdb
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\GerenciadorDeEmpregados.genruntimeconfig.cache
+C:\Users\usuario\source\repos\GerenciadorDeEmpregados\GerenciadorDeEmpregados\GerenciadorDeEmpregados\obj\Debug\net6.0\ref\GerenciadorDeEmpregados.dll

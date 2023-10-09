@@ -2,6 +2,7 @@
 {
     internal class Menu
     {
+        //Variaveis para criação e manipulação da Tela, dividido em 25 linhas.
         private string Linha1 { get; set; } = "";
         private string Linha2 { get; set; } = "";
         private string Linha3 { get; set; } = "";
@@ -27,14 +28,19 @@
         private string Linha23 { get; set; } = "";
         private string Linha24 { get; set; } = "";
         private string Linha25 { get; set; } = "";
-
-        internal Menu() // construtor chama tela inicial, em branco, cria apenas margens da tela
+        /// <summary>
+        /// construtor chama tela inicial, em branco, cria apenas margens da tela
+        /// </summary>
+        internal Menu()
         {
             Console.Clear();
             ImprimirMenuVoid(52, 15, ConsoleColor.White);
         }
-
-        internal char MenuInicial() // cria menu com as opcoes iniciais
+        /// <summary>
+        /// cria menu com as opcoes iniciais
+        /// </summary>
+        /// <returns>char</returns>
+        internal char MenuInicial()
         {
             Console.ForegroundColor = ConsoleColor.White; // ajusta cor
             Linha3 = "Gerenciador de Empregados";
@@ -48,12 +54,14 @@
 
             return MenuRetornaChar(52, 15); // usa este metodo para substituir as linhas, posicionar o cursor, e retornar a opcao do usuario
         }
-
+        /// <summary>
+        /// Lista todos os Empregados, apresentando até 6 Empregados por vez
+        /// </summary>
         internal void MenuListarEmpregados()
         {
             List<Empregado> empregadosOrdenados = Empresa.empregados.OrderBy(empregado => empregado.Matricula).ToList(); // cria uma nova lista ordenada por matriculas
             int NumeroFunc = empregadosOrdenados.Count;
-            int indice1 = 0;
+            int indice1 = 0; //Tela apresenta até 6 empregados por vez
             int indice2 = 1;
             int indice3 = 2;
             int indice4 = 3;
@@ -66,42 +74,48 @@
             labelInicioConsulta:
                 telaConsulta.Linha1 = $"Relatório de Funcionários. Quantidade de pessoas cadastradas: {NumeroFunc}";
                 telaConsulta.Linha3 = "===================================================================================";
+                // Apresenta informações do empregado indicado no Indice1 (1º empregado listado na tela)
                 telaConsulta.Linha4 = $"Matrícula: {empregadosOrdenados[indice1].Matricula}, Nome: {empregadosOrdenados[indice1].Nome} {empregadosOrdenados[indice1].Sobrenome}, Nascimento: {empregadosOrdenados[indice1].DataNascimento}";
-                telaConsulta.Linha5 = $"Idade: {empregadosOrdenados[indice1].Idade} anos, Salário: R${empregadosOrdenados[indice1].Salario :F2}, Contratação: {empregadosOrdenados[indice1].DataContratacao}";
+                telaConsulta.Linha5 = $"Idade: {empregadosOrdenados[indice1].Idade} anos, Salário: R${empregadosOrdenados[indice1].Salario:F2}, Contratação: {empregadosOrdenados[indice1].DataContratacao}";
                 telaConsulta.Linha6 = telaConsulta.Linha3;
-                if (NumeroFunc >= 2) // se a lista tiver 2 funcionarios ou mais, essas linhas são geradas
+                if (NumeroFunc >= 2)
                 {
+                    // Apresenta informações do empregado indicado no Indice2 (2º empregado listado na tela)
                     telaConsulta.Linha7 = $"Matrícula: {empregadosOrdenados[indice2].Matricula}, Nome: {empregadosOrdenados[indice2].Nome} {empregadosOrdenados[indice2].Sobrenome}, Nascimento: {empregadosOrdenados[indice2].DataNascimento}";
-                    telaConsulta.Linha8 = $"Idade: {empregadosOrdenados[indice2].Idade} anos, Salário: R${empregadosOrdenados[indice2].Salario :F2}, Contratação: {empregadosOrdenados[indice2].DataContratacao}";
+                    telaConsulta.Linha8 = $"Idade: {empregadosOrdenados[indice2].Idade} anos, Salário: R${empregadosOrdenados[indice2].Salario:F2}, Contratação: {empregadosOrdenados[indice2].DataContratacao}";
                     telaConsulta.Linha9 = telaConsulta.Linha3;
                 }
                 if (NumeroFunc >= 3)
                 {
+                    // Apresenta informações do empregado indicado no Indice3 (3º empregado listado na tela)
                     telaConsulta.Linha10 = $"Matrícula: {empregadosOrdenados[indice3].Matricula}, Nome: {empregadosOrdenados[indice3].Nome} {empregadosOrdenados[indice3].Sobrenome}, Nascimento: {empregadosOrdenados[indice3].DataNascimento}";
-                    telaConsulta.Linha11 = $"Idade: {empregadosOrdenados[indice3].Idade} anos, Salário: R${empregadosOrdenados[indice3].Salario :F2}, Contratação: {empregadosOrdenados[indice3].DataContratacao}";
+                    telaConsulta.Linha11 = $"Idade: {empregadosOrdenados[indice3].Idade} anos, Salário: R${empregadosOrdenados[indice3].Salario:F2}, Contratação: {empregadosOrdenados[indice3].DataContratacao}";
                     telaConsulta.Linha12 = telaConsulta.Linha3;
-                }
-                if (NumeroFunc >= 3)
-                {
-                    telaConsulta.Linha13 = $"Matrícula: {empregadosOrdenados[indice4].Matricula}, Nome: {empregadosOrdenados[indice4].Nome} {empregadosOrdenados[indice4].Sobrenome}, Nascimento: {empregadosOrdenados[indice4].DataNascimento}";
-                    telaConsulta.Linha14 = $"Idade: {empregadosOrdenados[indice4].Idade} anos, Salário: R${empregadosOrdenados[indice4].Salario :F2}, Contratação: {empregadosOrdenados[indice4].DataContratacao}";
-                    telaConsulta.Linha15 = telaConsulta.Linha3;
                 }
                 if (NumeroFunc >= 4)
                 {
+                    // Apresenta informações do empregado indicado no Indice4 (4º empregado listado na tela)
+                    telaConsulta.Linha13 = $"Matrícula: {empregadosOrdenados[indice4].Matricula}, Nome: {empregadosOrdenados[indice4].Nome} {empregadosOrdenados[indice4].Sobrenome}, Nascimento: {empregadosOrdenados[indice4].DataNascimento}";
+                    telaConsulta.Linha14 = $"Idade: {empregadosOrdenados[indice4].Idade} anos, Salário: R${empregadosOrdenados[indice4].Salario:F2}, Contratação: {empregadosOrdenados[indice4].DataContratacao}";
+                    telaConsulta.Linha15 = telaConsulta.Linha3;
+                }
+                if (NumeroFunc >= 5)
+                {
+                    // Apresenta informações do empregado indicado no Indice5 (5º empregado listado na tela)
                     telaConsulta.Linha16 = $"Matrícula: {empregadosOrdenados[indice5].Matricula}, Nome: {empregadosOrdenados[indice5].Nome} {empregadosOrdenados[indice5].Sobrenome}, Nascimento: {empregadosOrdenados[indice5].DataNascimento}";
-                    telaConsulta.Linha17 = $"Idade: {empregadosOrdenados[indice5].Idade} anos, Salário: R${empregadosOrdenados[indice5].Salario :F2}, Contratação: {empregadosOrdenados[indice5].DataContratacao}";
+                    telaConsulta.Linha17 = $"Idade: {empregadosOrdenados[indice5].Idade} anos, Salário: R${empregadosOrdenados[indice5].Salario:F2}, Contratação: {empregadosOrdenados[indice5].DataContratacao}";
                     telaConsulta.Linha18 = telaConsulta.Linha3;
                 }
 
-                if (NumeroFunc >= 5)
+                if (NumeroFunc >= 6)
                 {
+                    // Apresenta informações do empregado indicado no Indice6 (6º empregado listado na tela)
                     telaConsulta.Linha19 = $"Matrícula: {empregadosOrdenados[indice6].Matricula}, Nome: {empregadosOrdenados[indice6].Nome} {empregadosOrdenados[indice6].Sobrenome}, Nascimento: {empregadosOrdenados[indice6].DataNascimento}";
-                    telaConsulta.Linha20 = $"Idade: {empregadosOrdenados[indice6].Idade} anos, Salário: R${empregadosOrdenados[indice6].Salario :F2}, Contratação: {empregadosOrdenados[indice6].DataContratacao}";
+                    telaConsulta.Linha20 = $"Idade: {empregadosOrdenados[indice6].Idade} anos, Salário: R${empregadosOrdenados[indice6].Salario:F2}, Contratação: {empregadosOrdenados[indice6].DataContratacao}";
                     telaConsulta.Linha21 = telaConsulta.Linha3;
                 }
                 telaConsulta.Linha24 = "[ ]";
-                telaConsulta.Linha25 = "[D] DESCER LISTA     |     [Q] SAIR     |     [S] SUBIR LISTA";
+                telaConsulta.Linha25 = "[D] DESCER LISTA     |     [Q] SAIR     |     [S] SUBIR LISTA"; //"DESCER LISTA" apresenta proximo empregado no Indice 6, "SUBIR LISTA" faz o processo inverso.
 
                 telaConsulta.ImprimirMenuVoid(52, 24);
                 char opcao = char.ToUpper(Console.ReadKey().KeyChar);
@@ -144,12 +158,14 @@
 
             }
         } // menu para listar todos os empregados
-
-        internal void MenuDemitir() // cria menu para demitir
+        /// <summary>
+        /// cria menu para demitir Empregado, excluindo-o da Base De Dados
+        /// </summary>
+        internal void MenuDemitir()
         {
 
             Menu demitir = new();
-        labelInicioDemissao:
+        labelInicioDemissao: // Marcador De Retorno, em caso de erro na busca o metodo volta até este ponto do código
             demitir.Linha2 = "DEMISSÃO - DIGITE O NOME DO EMPREGADO A SER DEMITIDO";
             demitir.Linha5 = "PRIMEIRO NOME:       [                                   ]";
             demitir.Linha6 = "SOBRENOME:           [                                   ]";
@@ -159,7 +175,7 @@
             Console.SetCursorPosition(46, 6);
             string sobrenome = Console.ReadLine().ToUpper().Trim();
 
-            foreach (Empregado empregado in Empresa.empregados)
+            foreach (Empregado empregado in Empresa.empregados) //Busca Empregado na Base De Dados
             {
                 if (nome != empregado.Nome || sobrenome != empregado.Sobrenome)
                 {
@@ -200,7 +216,7 @@
                                     Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
                                     ImprimirMenuVoid(52, 21, ConsoleColor.DarkRed);
                                     Console.ReadLine();
-                                    return; // retorno void para sair do programa
+                                    return; // retorno void para sair da tela
                                 }
                             case 'Q':
                                 {
@@ -216,7 +232,7 @@
                     }
                 }
             }
-            demitir.Linha10 = "Empregado não encontrado!"; // só chega aqui se não encontrar empregado
+            demitir.Linha10 = "Empregado não encontrado!"; // Caso não encontre empregado, retorna mensagem de erro ao usuario e pergunta se quer tentar encontrar novamente
             demitir.Linha15 = "[C] CONTINUAR       [Q] SAIR";
             demitir.Linha14 = "[ ]";
             while (true)
@@ -228,7 +244,7 @@
                     case 'C':
                         {
                             demitir.Linha10 = "";
-                            goto labelInicioDemissao;
+                            goto labelInicioDemissao; //Retorna ao inicio da tela, no Marcador De Retorno
                         }
                     case 'Q':
                         {
@@ -243,12 +259,14 @@
 
 
         }
-
+        /// <summary>
+        /// Gera a tela para promover o Empregado e aumentar seu salario
+        /// </summary>
         internal void MenuPromover()
         {
 
             Menu promover = new();
-            labelInicioPromocao:
+        labelInicioPromocao: // Marcador De Retorno, em caso de erro na busca o metodo volta até este ponto do código
             promover.Linha2 = "PROMOÇÃO - DIGITE O NOME DO EMPREGADO A SER PROMOVIDO";
             promover.Linha5 = "PRIMEIRO NOME:       [                                   ]";
             promover.Linha6 = "SOBRENOME:           [                                   ]";
@@ -258,7 +276,7 @@
             Console.SetCursorPosition(46, 6);
             string sobrenome = Console.ReadLine().ToUpper().Trim();
 
-            foreach (Empregado empregado in Empresa.empregados)
+            foreach (Empregado empregado in Empresa.empregados) //Busca pelo Empregado na Base De Dados
             {
                 if (nome != empregado.Nome || sobrenome != empregado.Sobrenome)
                 {
@@ -294,7 +312,7 @@
                                     Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
                                     ImprimirMenuVoid(52, 21, ConsoleColor.DarkGreen);
                                     Console.ReadLine();
-                                    return; // retorno void para sair do programa
+                                    return; // retorno void para sair da tela
                                 }
                             case 'Q':
                                 {
@@ -310,7 +328,7 @@
                     }
                 }
             }
-            promover.Linha10 = "Empregado não encontrado!"; // só chega aqui se não encontrar empregado
+            promover.Linha10 = "Empregado não encontrado!"; // Caso não encontre empregado, retorna mensagem de erro ao usuario e pergunta se quer tentar encontrar novamente
             promover.Linha15 = "[C] CONTINUAR       [Q] SAIR";
             promover.Linha14 = "[ ]";
             while (true)
@@ -322,7 +340,7 @@
                     case 'C':
                         {
                             promover.Linha10 = "";
-                            goto labelInicioPromocao;
+                            goto labelInicioPromocao; //Retorna até o inicio da tela, no Marcador De Retorno
                         }
                     case 'Q':
                         {
@@ -335,14 +353,15 @@
                 }
             }
 
-
-        } // menu para promover
-
+        }
+        /// <summary>
+        /// Gera tela em que mostra os ganhos anuais de  um empregado 
+        /// </summary>
         internal void MenuSalarioAnual()
         {
 
             Menu consultar = new();
-            labelInicioConsulta:
+        labelInicioConsulta: // Marcador De Retorno, em caso de erro na busca o metodo volta até este ponto do código
             consultar.Linha2 = "PESQUISA DE FUNCIONÁRIOS";
             consultar.Linha5 = "PRIMEIRO NOME:       [                                   ]";
             consultar.Linha6 = "SOBRENOME:           [                                   ]";
@@ -372,10 +391,10 @@
                     Linha20 = "Aperte qualquer tecla para retornar ao menu principal";
                     ImprimirMenuVoid(52, 21);
                     Console.ReadLine();
-                    return; // retorno void para sair do programa
+                    return; // retorno void para sair da tela
                 }
             }
-            consultar.Linha10 = "Empregado não encontrado!"; // só chega aqui se não encontrar empregado
+            consultar.Linha10 = "Empregado não encontrado!"; // Caso não encontre empregado, retorna mensagem de erro ao usuario e pergunta se quer tentar encontrar novamente
             consultar.Linha15 = "[C] CONTINUAR       [Q] SAIR";
             consultar.Linha14 = "[ ]";
             while (true)
@@ -386,7 +405,7 @@
                 {
                     case 'C':
                         {
-                            goto labelInicioConsulta;
+                            goto labelInicioConsulta; //Retorna até o inicio da tela, no Marcador De Retorno
                         }
                     case 'Q':
                         {
@@ -398,9 +417,10 @@
                         }
                 }
             }
-
-        } // menu para listar salario anual de funconario especifico
-
+        } 
+        /// <summary>
+        ///  Gera tela para cadastrar novos Empregados
+        /// </summary>
         internal void MenuCadastrar()
         {
             Empregado novoEmpregado;
@@ -409,8 +429,6 @@
 
             while (loopCadastro)
             {
-                Console.ForegroundColor = ConsoleColor.White; // ajusta cor
-
                 Menu cadastrar = new();
 
                 cadastrar.Linha2 = "[C] CADASTRO COMPLETO    |  [ ]  |    [S] CADASTRO SIMPLES";
@@ -425,9 +443,6 @@
                 cadastrar.Linha21 = "PREENCHA TODOS OS CAMPOS PARA PODER SELECIONAR UMA OPÇÃO";
 
                 cadastrar.ImprimirMenuVoid(52, 3); // imprime o menu com as linhas acima
-
-                // a fazer: melhorar validações de tipo do input (ex.: nomes aceitam numeros na versão atual)
-                // a fazer: event listener para capturar inputs para sair sem ter que ir até o final da tela
 
                 try
                 {
@@ -544,9 +559,11 @@
             }
 
 
-        } // menu para cadastrar novo empregado
-
-        internal void NaoEncontrado() // menu para exibir erro caso não exista arquivo de BD
+        }
+        /// <summary>
+        /// menu para exibir erro caso não exista arquivo de BD
+        /// </summary>
+        internal void NaoEncontrado()
         {
             Linha10 = "Arquivo Base de Dados não encontrado!";
             Linha15 = "Não existem funcionários cadastrados!";

@@ -5,6 +5,9 @@ namespace GerenciadorDeEmpregados
     internal static class BaseDados
     {
         private static List<Empregado> bd { get; set; }
+        /// <summary>
+        /// Faz os preparativos estruturais para inserir a Base De Dados no sitema
+        /// </summary>
         internal static void Inicializar()
         {
             bd = new(); // inicializa a lista banco de dados (bd)
@@ -14,22 +17,24 @@ namespace GerenciadorDeEmpregados
                 Empresa.empregados.Add(empregado); // passa os empregados lidos para a lista usada durante a execucao do programa
             }
         }
-
-        internal static void Ler() // utilizar no começo do programa, antes de qualquer "Gravar"
+        /// <summary>
+        /// Le a Data Base externa e a incorpora no sistema
+        /// </summary>
+        internal static void Ler() 
         {
-            try // tenta encontrar o arquivo da base de dados na raiz do programa
+            try // tenta encontrar o arquivo da base de dados na pasta \bin\debug\net6.0
             {
-                string arquivo = BuscarCaminho(); // vide metodo acima
+                string arquivo = BuscarCaminho(); 
                 using (StreamReader leitor = new StreamReader(arquivo))  //StreamReader le linhas do arquivo csv no argumento
                 {
-                    string linha; // inicializa uma string para uso abaixo                   
+                    string linha;                    
 
                     while ((linha = leitor.ReadLine()) != null) // retorno do leitor é passado para linha, enquanto a linha não for vazia:
                     {
-                        char separador = ';'; //delimitador para separar
-                        string[] e = linha.Split(separador); //split retorna uma array com os valores encontrados. e1=matricula, e2=nome, e3=sobrenome, e4=nascimento, e5=contratacao, e6=salario
+                        //char separador = ';';
+                        string[] e = linha.Split(';'); //split retorna uma array com os valores encontrados. e0=matricula, e1=nome, e2=sobrenome, e3=nascimento, e4=contratacao, e5=idade???, e6=salario
                         Empregado empregado = new(e[1], e[2], DateOnly.Parse(e[3]), DateOnly.Parse(e[4]), double.Parse(e[6]));
-                        empregado.InfoBD(int.Parse(e[0]), int.Parse(e[5]));
+                        empregado.InfoBD(int.Parse(e[0]));
                         bd.Add(empregado); // valores retornados da array, que devem ser respectivamente, palavra e dica
                     }
                 }
@@ -40,6 +45,9 @@ namespace GerenciadorDeEmpregados
                 erro.NaoEncontrado();                
             }
         }
+        /// <summary>
+        /// Grava novo empregado na Base De DAdos
+        /// </summary>
         internal static void Gravar()
         {
             bd.Clear(); // limpa a bd antes de adicionar todos novamente. Serve para n\ao duplocar valores.
@@ -60,7 +68,11 @@ namespace GerenciadorDeEmpregados
             }
 
         }
-        internal static string BuscarCaminho() // verifica o diretorio onde o programa esta instalado
+        /// <summary>
+        /// verifica o diretorio onde o programa esta instalado
+        /// </summary>
+        /// <returns></returns>
+        internal static string BuscarCaminho() 
         {
             // Busca o diretório de onde o programa está sendo executado. 
             // como funciona, apenas que está retornando uma string com o diretorio raiz do programa

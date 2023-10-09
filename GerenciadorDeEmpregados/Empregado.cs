@@ -23,7 +23,14 @@
             }
         }
 
-        // construtor1 - dados completos
+        /// <summary>
+        /// construtor1 - dados completos
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="sobrenome"></param>
+        /// <param name="dataNascimento"></param>
+        /// <param name="dataContratacao"></param>
+        /// <param name="salario"></param>
         internal Empregado(string nome, string sobrenome, DateOnly dataNascimento, DateOnly dataContratacao, double salario)
         {
             Matricula = Empresa.GerarMatricula(); // método verifica primeiro número disponível e retorna como matrícula
@@ -44,7 +51,12 @@
             }            
         }
 
-        //construtor2 - dados basicos
+        /// <summary>
+        /// construtor2 - dados basicos
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="sobrenome"></param>
+        /// <param name="dataNascimento"></param>
         internal Empregado(string nome, string sobrenome, DateOnly dataNascimento)
         {
             Nome = nome.ToUpper();
@@ -63,16 +75,22 @@
             Matricula = Empresa.GerarMatricula();
             DataContratacao = DateOnly.FromDateTime(DateTime.Now); // Cadastra data de início como dia atual
         }
-
-        internal double SalarioAnual() // Calcula o salário anual multiplicando o salário mensal por 12
+        /// <summary>
+        /// Calcula o salário anual multiplicando o salário mensal por 12
+        /// </summary>
+        /// <returns></returns>
+        internal double SalarioAnual()
         {
             return Salario * 12;
         }
-
-        internal void InfoBD(int matricula, double salario) // usado para passar salario e matricula quando lido da BD. Usado para proteger / manter set privado
+        /// <summary>
+        /// usado para passar salario e matricula quando lido da BD. Usado para proteger / manter set privado
+        /// </summary>
+        /// <param name="matricula"></param>
+        /// <param name="salario"></param>
+        internal void InfoBD(int matricula)
         {
             Matricula = matricula;
-            Salario = salario;
         }
     }
 }
