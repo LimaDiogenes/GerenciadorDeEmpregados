@@ -248,7 +248,7 @@
         {
 
             Menu promover = new();
-        labelInicioPromocao:
+            labelInicioPromocao:
             promover.Linha2 = "PROMOÇÃO - DIGITE O NOME DO EMPREGADO A SER PROMOVIDO";
             promover.Linha5 = "PRIMEIRO NOME:       [                                   ]";
             promover.Linha6 = "SOBRENOME:           [                                   ]";
@@ -342,7 +342,7 @@
         {
 
             Menu consultar = new();
-        labelInicioConsulta:
+            labelInicioConsulta:
             consultar.Linha2 = "PESQUISA DE FUNCIONÁRIOS";
             consultar.Linha5 = "PRIMEIRO NOME:       [                                   ]";
             consultar.Linha6 = "SOBRENOME:           [                                   ]";

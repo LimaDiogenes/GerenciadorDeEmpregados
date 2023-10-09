@@ -1,5 +1,33 @@
 ﻿using System.Globalization;
 
+
+//Desenvolva um sistema para uma Firma.
+//Este sistema armazena as informações do empregado que inclui:
+//
+//Primeiro nome,
+//sobrenome,
+//matricula,
+//idade,
+//data de nascimento,
+//data de contratação,
+//salário mensal.
+//
+//O empregado pode ser criado no sistema com todas as informações completas ou somente com os dados básicos pessoais (nomes, idade, nascimento).
+//Se o salário mensal for menor que um salário minimo, configure-o com o valor de um salario minimo.
+//Quando os empregados recebem um aumento, sempre é de 10% no salário mensal.
+//Crie um menu com as opções:
+//
+//Cadastrar Empregado
+//Listar Todos Empregados cadastrados
+//Promover um Empregado, peça nome e sobrenome
+//Demitir um Empregado, peça nome e sobrenome
+//Listar salário anual do Empregado
+//
+//Adicionem ao repositório a imagem da UML também.
+//
+//Pontos avaliativos: Classe, objeto, abstração, encapsulamento, propriedades, métodos, construtores.
+//UML
+
 namespace GerenciadorDeEmpregados
 {
     internal class Program
